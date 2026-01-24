@@ -1,0 +1,7 @@
+<h2>{{ workout?.title }}</h2>
+
+<ul>
+  <li *ngFor="let ex of workout?.exercises">
+    {{ ex.name }} - {{ ex.sets }} sets × {{ ex.reps }} reps
+  </li>
+</ul>

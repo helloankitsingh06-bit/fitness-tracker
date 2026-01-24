@@ -1,0 +1,35 @@
+<div class="page">
+  <h1 class="page-title">Workout Plans</h1>
+
+  <div class="card-grid">
+    <mat-card
+      *ngFor="let workout of workouts"
+      class="workout-card"
+    >
+      <div class="card-top">
+        <h2 class="card-title">{{ workout.title }}</h2>
+
+        <span
+          class="level-badge"
+          [ngClass]="workout.level.toLowerCase()"
+        >
+          {{ workout.level }}
+        </span>
+      </div>
+
+      <p class="card-subtitle">
+        Perfect for {{ workout.level.toLowerCase() }} athletes
+      </p>
+
+      <mat-card-actions align="end">
+        <a
+          mat-raised-button
+          color="primary"
+          [routerLink]="['/workout', workout.id]"
+        >
+          View Details
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

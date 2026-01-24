@@ -1,0 +1,77 @@
+/* Page */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Card */
+.workout-card {
+  padding: 24px;
+  border-radius: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.workout-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Card header */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Subtitle */
+.card-subtitle {
+  margin: 12px 0 24px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Level badge */
+.level-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Level colors */
+.level-badge.beginner {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.level-badge.intermediate {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.level-badge.advanced {
+  background: #fce4ec;
+  color: #ad1457;
+}

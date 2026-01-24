@@ -1,0 +1,8 @@
+export interface User {
+  id: number;
+  name: string;
+  age: number;
+  height: number;
+  weight: number;
+  goal: string;
+}
