@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProgressTracker } from './progress-tracker';
+import { ProgressTrackerComponent } from './progress-tracker';
 
 describe('ProgressTracker', () => {
-  let component: ProgressTracker;
-  let fixture: ComponentFixture<ProgressTracker>;
+  let component: ProgressTrackerComponent;
+  let fixture: ComponentFixture<ProgressTrackerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProgressTracker]
+      imports: [ProgressTrackerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProgressTracker);
+    fixture = TestBed.createComponent(ProgressTrackerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,156 @@
+.profile-page{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 34px 18px 60px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-end;
+  margin-bottom: 18px;
+}
+
+.header h1{
+  font-size: 44px;
+  margin: 0 0 6px;
+}
+
+.header p{
+  margin: 0;
+  opacity: .75;
+}
+
+.actions{
+  display: flex;
+  gap: 10px;
+}
+
+.btn{
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.btn.primary{
+  background: #2f6bff;
+  color: white;
+}
+
+.btn.ghost{
+  background: rgba(0,0,0,0.06);
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 18px;
+}
+
+.card{
+  background: var(--card);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card h2{
+  margin: 0 0 14px;
+}
+
+.msg{
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.msg.success{ background: rgba(46,125,50,.12); color: #2e7d32; }
+.msg.error{ background: rgba(211,47,47,.12); color: #d32f2f; }
+
+.form{
+  display: grid;
+  gap: 12px;
+}
+
+.row{
+  display: grid;
+  gap: 8px;
+}
+
+label{
+  font-weight: 700;
+  opacity: .85;
+}
+
+input, select{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: transparent;
+  color: var(--text);
+  outline: none;
+}
+
+input:focus, select:focus{
+  border-color: rgba(47,107,255,.8);
+  box-shadow: 0 0 0 4px rgba(47,107,255,.12);
+}
+
+.two{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.summary{
+  display: grid;
+  gap: 10px;
+}
+
+.pill{
+  padding: 14px 14px;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.04);
+}
+
+.pill-title{
+  font-size: 12px;
+  opacity: .7;
+  letter-spacing: 1.2px;
+}
+
+.pill-value{
+  font-size: 18px;
+  font-weight: 800;
+  margin-top: 6px;
+}
+
+.muted{ opacity: .7; font-weight: 600; }
+
+.tips{
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.tips h3{
+  margin: 0 0 8px;
+}
+
+.tips ul{
+  margin: 0;
+  padding-left: 18px;
+  opacity: .9;
+}
+
+@media (max-width: 900px){
+  .grid{ grid-template-columns: 1fr; }
+  .header{ flex-direction: column; align-items: flex-start; }
+}

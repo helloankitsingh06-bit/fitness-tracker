@@ -1,15 +1,9 @@
-imports: [
-  CommonModule,
-  RouterModule,
-  MatToolbarModule,
-  MatButtonModule
-]
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ThemeService } from '../../services/theme.service';
 
-// Angular Material modules
+// Angular Material
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -25,4 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css']
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+
+  constructor(public theme: ThemeService) {}
+
+}

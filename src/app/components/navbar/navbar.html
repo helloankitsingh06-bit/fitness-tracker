@@ -1,8 +1,55 @@
-<mat-toolbar color="primary">
-  <span>Fitness Tracker</span>
-  <span class="spacer"></span>
+<nav class="topbar">
 
-  <a mat-button routerLink="/">Workouts</a>
-  <a mat-button routerLink="/progress">Progress</a>
-  <a mat-button routerLink="/profile">Profile</a>
-</mat-toolbar>
+  <!-- Brand -->
+  <div class="brand" routerLink="/dashboard">
+    <span class="logo-dot"></span>
+    <span class="brand-text">Fitness Tracker</span>
+  </div>
+
+  <!-- Links -->
+  <div class="nav">
+
+    <a
+      routerLink="/welcome"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav-link">
+      Welcome
+    </a>
+
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="active"
+      class="nav-link">
+      Dashboard
+    </a>
+
+    <a
+      routerLink="/workouts"
+      routerLinkActive="active"
+      class="nav-link">
+      Workouts
+    </a>
+
+    <a
+      routerLink="/progress"
+      routerLinkActive="active"
+      class="nav-link">
+      Progress
+    </a>
+
+    <a
+      routerLink="/profile"
+      routerLinkActive="active"
+      class="nav-link">
+      Profile
+    </a>
+
+    <!-- Dark Mode Button -->
+    <button class="dark-btn" (click)="theme.toggle()">
+      {{ theme.isDark() ? '☀️ Light Mode' : '🌙 Dark Mode' }}
+    </button>
+
+  </div>
+
+</nav>

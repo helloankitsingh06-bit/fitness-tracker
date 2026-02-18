@@ -1,10 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-body {
-  margin: 0;
-  font-family: Roboto, Arial, sans-serif;
-  background-color: #f4f6f8;
+:root {
+  --bg: #f5f7fb;
+  --bg-accent: #f0f2f8;
+  --card: #ffffff;
+  --text: #111;
 }
 
+body.dark {
+  --bg: #121212;
+  --bg-accent: #1a1a1a;
+  --card: #1e1e1e;
+  --text: #f1f1f1;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: linear-gradient(
+    180deg,
+    var(--bg),
+    var(--bg-accent)
+  );
+  color: var(--text);
+}
+
+body.dark .card-subtitle {
+  color: #aaa;
+}
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 26px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .dark-btn {
+    width: 100%;
+    max-width: 220px;
+  }
+}

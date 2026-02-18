@@ -1,35 +1,49 @@
-<div class="page">
-  <h1 class="page-title">Progress Tracker</h1>
-  <p class="page-subtitle">
-    Track your consistency, strength, and growth over time.
-  </p>
-
-  <!-- Stats -->
-  <div class="stats-grid">
-    <mat-card class="stat-card">
-      <div class="stat-label">Workouts</div>
-      <div class="stat-value">24</div>
-      <div class="stat-sub">Completed</div>
-    </mat-card>
-
-    <mat-card class="stat-card streak">
-      <div class="stat-label">Streak</div>
-      <div class="stat-value">5</div>
-      <div class="stat-sub">Days</div>
-    </mat-card>
-
-    <mat-card class="stat-card time">
-      <div class="stat-label">Time</div>
-      <div class="stat-value">18</div>
-      <div class="stat-sub">Hours</div>
-    </mat-card>
+<div class="progress-page">
+  <div class="header">
+    <div>
+      <h1>Progress Tracker</h1>
+      <p>Track your consistency, strength, and growth over time.</p>
+    </div>
   </div>
 
-  <!-- Weekly Progress -->
-  <mat-card class="chart-card">
-    <h2>Weekly Progress</h2>
-    <div class="chart-placeholder">
-      📈 Charts coming soon
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-title">WORKOUTS</div>
+      <div class="stat-value">{{ completedCount }}</div>
+      <div class="stat-sub">Completed</div>
     </div>
-  </mat-card>
+
+    <div class="stat-card highlight">
+      <div class="stat-title">STREAK</div>
+      <div class="stat-value">{{ streakDays }}</div>
+      <div class="stat-sub">Days</div>
+    </div>
+
+    <div class="stat-card muted">
+      <div class="stat-title">TIME</div>
+      <div class="stat-value">{{ totalHours }}</div>
+      <div class="stat-sub">Hours</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-top">
+      <h2>Weekly Progress</h2>
+      <button class="refresh-btn" (click)="refresh()">↻ Refresh</button>
+    </div>
+
+    <div class="chart">
+      <div class="day" *ngFor="let d of weekly">
+        <div class="bar-wrap">
+          <div class="bar" [style.height.%]="barHeight(d.count)"></div>
+        </div>
+        <div class="day-label">{{ label(d.dateISO) }}</div>
+        <div class="day-meta">{{ d.count }}x • {{ d.minutes }}m</div>
+      </div>
+    </div>
+
+    <div class="empty" *ngIf="completedCount === 0">
+      No workouts completed yet. Go complete one workout and come back 🔥
+    </div>
+  </div>
 </div>

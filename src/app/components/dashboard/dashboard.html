@@ -1,0 +1,114 @@
+<div class="dash">
+
+  <div class="top">
+    <div>
+      <h1>Hey, {{ name }} 👋</h1>
+      <p class="sub">Goal: <b>{{ goal }}</b></p>
+    </div>
+
+    <div class="quick">
+      <a class="qbtn" [routerLink]="['/progress']">📈 View Progress</a>
+      <a class="qbtn ghost" [routerLink]="['/profile']">⚙️ Edit Profile</a>
+    </div>
+  </div>
+
+  <!-- Stats cards -->
+  <div class="cards">
+    <div class="stat">
+      <div class="label">WORKOUTS</div>
+      <div class="num">{{ completedDistinct }}</div>
+      <div class="mini">completed</div>
+    </div>
+
+    <div class="stat yellow">
+      <div class="label">STREAK</div>
+      <div class="num">{{ streak }}</div>
+      <div class="mini">days</div>
+    </div>
+
+    <div class="stat gray">
+      <div class="label">TIME</div>
+      <div class="num">{{ totalMinutes }}</div>
+      <div class="mini">minutes total</div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- Today focus -->
+    <div class="panel focus" *ngIf="todayPick as t">
+      <div class="focus-left">
+        <div class="badge">🔥 Today’s Focus</div>
+        <h2>{{ t.title }}</h2>
+        <p class="sub2">
+          {{ t.level }} • {{ t.exercises.length }} exercises
+        </p>
+        <p class="muted">{{ t.desc }}</p>
+      </div>
+
+      <a class="start" [routerLink]="['/workout', t.id]">Start Workout →</a>
+    </div>
+
+    <!-- Level -->
+    <div class="panel">
+      <div class="head">
+        <h3>Level</h3>
+        <span class="pill">{{ levelName }}</span>
+      </div>
+
+      <div class="bar">
+        <div class="fill" [style.width.%]="levelProgress"></div>
+      </div>
+
+      <div class="muted">{{ levelProgress }}% to next level</div>
+    </div>
+
+    <!-- Weekly chart -->
+    <div class="panel wide">
+      <div class="head">
+        <h3>Weekly Minutes</h3>
+        <span class="muted">last 7 days</span>
+      </div>
+
+      <div class="weekly">
+        <div class="day" *ngFor="let d of weekly">
+          <div class="col">
+            <div class="col-fill" [style.height.px]="d.minutes * 3"></div>
+          </div>
+          <div class="dlabel">{{ d.dateISO }}</div>
+          <div class="dmin">{{ d.minutes }}m</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recommended -->
+    <div class="panel wide">
+      <div class="head">
+        <h3>Explore Workouts</h3>
+        <a class="link" [routerLink]="['/workouts']">See all →</a>
+      </div>
+
+      <div class="mini-grid">
+        <a
+          class="mini-card"
+          *ngFor="let w of workouts.slice(0, 6)"
+          [routerLink]="['/workout', w.id]"
+        >
+          <img [src]="w.image" [alt]="w.title" />
+
+          <div class="mc-body">
+            <div class="mc-top">
+              <b>{{ w.title }}</b>
+              <span class="tag">{{ w.level }}</span>
+            </div>
+
+            <div class="mc-sub">
+              {{ w.exercises.length }} exercises • {{ w.desc }}
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

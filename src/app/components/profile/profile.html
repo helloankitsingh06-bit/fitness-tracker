@@ -1,24 +1,104 @@
-<div class="page">
-  <h1 class="page-title">User Profile</h1>
-  <p class="page-subtitle">Manage your personal fitness details</p>
-
-  <mat-card class="profile-card">
-    <div class="form-grid">
-      <mat-form-field appearance="outline">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Enter your name" />
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Fitness Goal</mat-label>
-        <input matInput placeholder="e.g. Build muscle, Lose fat" />
-      </mat-form-field>
+<div class="profile-page">
+  <div class="header">
+    <div>
+      <h1>User Profile</h1>
+      <p>Manage your personal fitness details and goals.</p>
     </div>
 
     <div class="actions">
-      <button mat-raised-button color="primary">
-        Save Profile
-      </button>
+      <button class="btn ghost" (click)="reset()">Reset</button>
+      <button class="btn primary" (click)="save()">Save Profile</button>
     </div>
-  </mat-card>
+  </div>
+
+  <div class="grid">
+    <!-- LEFT: FORM -->
+    <div class="card">
+      <h2>Profile Details</h2>
+
+      <div class="msg success" *ngIf="savedMsg">{{ savedMsg }}</div>
+      <div class="msg error" *ngIf="errorMsg">{{ errorMsg }}</div>
+
+      <div class="form">
+        <div class="row">
+          <label>Name</label>
+          <input type="text" placeholder="e.g. Ankit" [(ngModel)]="profile.name" />
+        </div>
+
+        <div class="row">
+          <label>Fitness Goal</label>
+          <select [(ngModel)]="profile.goal">
+            <option *ngFor="let g of goals" [value]="g">{{ g }}</option>
+          </select>
+        </div>
+
+        <div class="two">
+          <div class="row">
+            <label>Age</label>
+            <input type="number" placeholder="e.g. 20" [(ngModel)]="profile.age" />
+          </div>
+
+          <div class="row">
+            <label>Workouts / Week</label>
+            <input type="number" min="1" max="14" [(ngModel)]="profile.workoutsPerWeek" />
+          </div>
+        </div>
+
+        <div class="two">
+          <div class="row">
+            <label>Height (cm)</label>
+            <input type="number" placeholder="e.g. 175" [(ngModel)]="profile.heightCm" />
+          </div>
+
+          <div class="row">
+            <label>Weight (kg)</label>
+            <input type="number" placeholder="e.g. 72" [(ngModel)]="profile.weightKg" />
+          </div>
+        </div>
+
+        <div class="row">
+          <label>Target Weight (kg)</label>
+          <input type="number" placeholder="Optional" [(ngModel)]="profile.targetWeightKg" />
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: SUMMARY -->
+    <div class="card">
+      <h2>Your Summary</h2>
+
+      <div class="summary">
+        <div class="pill">
+          <div class="pill-title">Goal</div>
+          <div class="pill-value">{{ profile.goal }}</div>
+        </div>
+
+        <div class="pill">
+          <div class="pill-title">Plan</div>
+          <div class="pill-value">{{ profile.workoutsPerWeek || 0 }} workouts / week</div>
+        </div>
+
+        <div class="pill" *ngIf="bmi !== null">
+          <div class="pill-title">BMI</div>
+          <div class="pill-value">{{ bmi }} <span class="muted">({{ bmiLabel }})</span></div>
+        </div>
+
+        <div class="pill" *ngIf="profile.weightKg && profile.targetWeightKg">
+          <div class="pill-title">Target</div>
+          <div class="pill-value">
+            {{ profile.weightKg }} → {{ profile.targetWeightKg }} kg
+          </div>
+        </div>
+      </div>
+
+      <div class="tips">
+        <h3>Quick Tips</h3>
+        <ul>
+          <li>Save your profile once and it will stay even after refresh.</li>
+          <li>Try to keep workouts consistent for streaks in Progress page.</li>
+          <li>Update weight weekly to track changes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,3 +1,22 @@
-<app-navbar></app-navbar>
+<header class="topbar">
+  <div class="brand" routerLink="/dashboard" style="cursor: pointer;">
+    <span class="logo-dot"></span>
+    <span class="brand-text">Fitness Tracker</span>
+  </div>
 
-<router-outlet></router-outlet>
+  <nav class="nav">
+    <a routerLink="/welcome" routerLinkActive="active">Welcome</a>
+    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    <a routerLink="/workouts" routerLinkActive="active">Workouts</a>
+    <a routerLink="/progress" routerLinkActive="active">Progress</a>
+    <a routerLink="/profile" routerLinkActive="active">Profile</a>
+
+    <button class="dark-btn" (click)="theme.toggle()">
+      {{ theme.isDark() ? '☀️ Light Mode' : '🌙 Dark Mode' }}
+    </button>
+  </nav>
+</header>
+
+<main class="app-shell">
+  <router-outlet></router-outlet>
+</main>

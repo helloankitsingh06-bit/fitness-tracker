@@ -1,0 +1,82 @@
+<div class="page">
+
+  <!-- Animated Background -->
+  <div class="bg">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+    <span class="grid"></span>
+    <span class="shine"></span>
+  </div>
+
+  <div class="shell">
+    <div class="card" [class.exit]="isExiting">
+
+      <!-- Top -->
+      <div class="top">
+        <div class="brand">
+          <div class="logo">
+            <span class="ring"></span>
+            <span class="dot"></span>
+          </div>
+
+          <div class="brand-text">
+            <h1>Fitness Tracker <span class="zap">⚡</span></h1>
+            <p>Track workouts. Build streaks. Stay consistent.</p>
+          </div>
+        </div>
+
+        <div class="pill">
+          <span class="ping"></span>
+          <span>Ready</span>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="chips">
+        <div class="chip">🔥 Streaks</div>
+        <div class="chip">⏱️ Timer</div>
+        <div class="chip">✅ Progress</div>
+        <div class="chip">🌙 Dark Mode</div>
+      </div>
+
+      <!-- Hero Section -->
+      <div class="hero">
+        <div class="stat">
+          <div class="k">Today</div>
+          <div class="v">Full Body</div>
+          <div class="s">25–30 min • Medium</div>
+        </div>
+
+        <div class="mini">
+          <div class="mini-row">
+            <span class="mini-dot"></span>
+            <span class="mini-text">Personal dashboard</span>
+          </div>
+          <div class="mini-row">
+            <span class="mini-dot"></span>
+            <span class="mini-text">Auto progress updates</span>
+          </div>
+          <div class="mini-row">
+            <span class="mini-dot"></span>
+            <span class="mini-text">Workout images & plans</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENTER BUTTON -->
+      <button class="btn enter-btn" (click)="enterApp()">
+        <span class="btn-text">Enter App</span>
+        <span class="btn-icon">→</span>
+        <span class="ripple"></span>
+      </button>
+
+      <!-- Footer -->
+      <div class="footer">
+        <span class="tip">Tip:</span>
+        Use Dark Mode inside the app <span class="moon">🌙</span>
+      </div>
+
+    </div>
+  </div>
+</div>

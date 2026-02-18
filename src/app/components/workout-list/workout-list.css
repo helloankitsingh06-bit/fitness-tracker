@@ -21,14 +21,16 @@
 
 /* Card */
 .workout-card {
+  background: var(--card);
   padding: 24px;
-  border-radius: 16px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .workout-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
 }
 
 /* Card header */
@@ -49,6 +51,10 @@
   margin: 12px 0 24px;
   color: #666;
   font-size: 14px;
+}
+
+body.dark .card-subtitle {
+  color: #aaa;
 }
 
 /* Level badge */
@@ -74,4 +80,74 @@
 .level-badge.advanced {
   background: #fce4ec;
   color: #ad1457;
+}
+
+/* 🔥 Focus section */
+.focus-section {
+  max-width: 1200px;
+  margin: 0 auto 50px;
+  padding: 0 20px;
+}
+
+.focus-card {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  padding: 24px 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Button */
+.start-btn {
+  background: white;
+  color: #4f46e5;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ✅ Stats */
+.stats-row {
+  max-width: 1200px;
+  margin: 30px auto 60px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.stat {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+body.dark .stat {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 26px;
+  }
+
+  .focus-card {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
 }

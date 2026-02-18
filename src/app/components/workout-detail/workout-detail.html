@@ -1,7 +1,52 @@
-<h2>{{ workout?.title }}</h2>
+<div class="detail-page" *ngIf="workout">
 
-<ul>
-  <li *ngFor="let ex of workout?.exercises">
-    {{ ex.name }} - {{ ex.sets }} sets × {{ ex.reps }} reps
-  </li>
-</ul>
+  <!-- HEADER / HERO -->
+  <section class="hero">
+    <img class="hero-img" [src]="workout.image" [alt]="workout.title" />
+
+    <div class="hero-info">
+      <h1 class="hero-title">{{ workout.title }}</h1>
+      <span class="pill">{{ workout.level }}</span>
+      <p class="hero-desc">{{ workout.desc }}</p>
+    </div>
+  </section>
+
+  <!-- TIMER -->
+  <section class="timer-card">
+    <h2>Workout Timer</h2>
+    <div class="time">{{ formattedTime }}</div>
+
+    <div class="timer-actions">
+      <button (click)="startTimer()">▶ Start</button>
+      <button (click)="pauseTimer()">⏸ Pause</button>
+      <button (click)="resetTimer()">⟲ Reset</button>
+    </div>
+  </section>
+
+  <!-- EXERCISES -->
+  <h2 class="section-title">Exercises</h2>
+
+  <div class="exercise-grid">
+    <div class="exercise-card" *ngFor="let ex of workout.exercises">
+      <img class="exercise-img" [src]="ex.image" [alt]="ex.name" />
+      <h3>{{ ex.name }}</h3>
+      <p>{{ ex.sets }} sets × {{ ex.reps }} reps</p>
+    </div>
+  </div>
+
+  <!-- COMPLETION -->
+  <div class="completion-box">
+    <button
+      *ngIf="!completed"
+      class="complete-btn"
+      (click)="markCompleted()"
+    >
+      ✅ Mark Workout as Completed
+    </button>
+
+    <p *ngIf="completed" class="completed-text">
+      🎉 Workout Completed! Great job!
+    </p>
+  </div>
+
+</div>
